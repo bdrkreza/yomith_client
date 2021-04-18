@@ -1,6 +1,14 @@
 .body-2 {
     margin: 150px;
 }
+.price-body{
+display: flex;
+}
+.price{
+    margin-top: 22px;
+    margin-left: 5px;
+}
+
 .styled-table-2 {
     border-collapse: collapse;
     margin: 25px 0;

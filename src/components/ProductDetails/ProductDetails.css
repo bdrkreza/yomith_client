@@ -134,6 +134,7 @@
     color: #fff;
     width: 150px;
     margin-bottom: 15px;
+    cursor: pointer;
     -webkit-transition: background .3s ease;
             transition: background .3s ease; }
     .add-to-cart:hover, .like:hover {

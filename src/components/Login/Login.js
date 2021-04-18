@@ -28,10 +28,13 @@ const Login = () => {
         firebase.auth()
             .signInWithPopup(provider)
             .then((result) => {
-                const { displayName, email } = result.user;
+                const { displayName, photoURL, email } = result.user;
                 const SignInUser = {
+                    isSignedIn: true,
                     email: email,
-                    name: displayName
+                    name: displayName,
+                    photo: photoURL,
+                    success: true
                 }
                 setLoggedInUser(SignInUser);
                 history.replace(from);
@@ -44,6 +47,7 @@ const Login = () => {
             });
 
     }
+
     return (
         <div className="login-body">
             <h1>This is Login {name} </h1>

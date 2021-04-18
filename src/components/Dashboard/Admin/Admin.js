@@ -1,7 +1,8 @@
 
 import React from 'react';
 import './Admin.css';
-import { Link } from '@material-ui/core';
+import { Button, Link } from '@material-ui/core';
+import { NavLink } from 'react-router-dom';
 
 
 const Admin = () => {
@@ -9,20 +10,19 @@ const Admin = () => {
     return (
         <>
             <div class="sidebar">
-                <div class="sidenav">
+                <div class="sidebar2">
+                    <div class="sidenav2">
 
-                    <Link href="/manageProduct">Manage Product</Link>
-                    <Link href="/addProduct">Add Product</Link>
-                    <Link href="/editProduct">Edit Product</Link>
+                    </div>
+                    <NavLink to="admin/addProduct"><Button color="inherit">Home</Button></NavLink>
+                    <Link to="admin/manageProduct">Manage Product</Link>
 
+
+                    <div class="main">
+                        <h1>WelCome admin page</h1>
+                    </div>
                 </div>
-
-                <div class="main">
-                    <h1>WelCome admin page</h1>
-                </div>
-
             </div>
-
         </>
     );
 };

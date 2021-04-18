@@ -1,0 +1,39 @@
+.logo{
+    width: 80px;
+    height: 30px;
+    margin-top: 20px;
+}
+.home{
+    text-decoration: none;
+    text-align: center;
+    display: flex;
+    color:#000;
+}
+.logo-text{
+    color: #CB2C9D;
+}
+.logo-body{
+    display:flex;
+    text-decoration: none;
+}
+
+.menu-content{
+    text-decoration: none;
+    color:rgb(36, 82, 174);
+    text-align: center;
+}
+
+.menu-content:hover{
+    color: rgb(154, 74, 74);
+}
+.logoColor {
+    color: #afc640;
+    margin-bottom: 10px;
+    margin-left: 5px;
+}
+
+.navbar-icon{
+    text-decoration: none;
+    color: #000;
+    padding: 10px;
+}

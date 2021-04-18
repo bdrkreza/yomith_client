@@ -1,68 +1,68 @@
-
+import React, { createContext, useState } from "react";
 import {
   BrowserRouter as Router,
   Switch,
   Route,
 } from "react-router-dom";
-import Home from './components/Home/Home';
-import Navbar from './components/Header/Navbar';
-import Admin from "./components/Dashboard/Admin/Admin";
-import Orders from "./components/Orders/Orders";
-import NoMatch from "./components/NoMatch/NoMatch";
 import Login from "./components/Login/Login";
+import Home from "./components/Home/Home";
+import Navbar from "./components/Navbar/Navbar";
+import NoMatch from "./components/NoMatch/NoMatch";
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import CheckOut from "./components/CheckOut/CheckOut";
+import ProductDetails from "./components/ProductDetails/ProductDetails";
+import Orders from "./components/Orders/Orders";
 import AddProducts from "./components/Dashboard/AddProducts/AddProducts";
 import ManageProduct from "./components/Dashboard/ManageProduct/ManageProduct";
 import EditProduct from "./components/Dashboard/EditProduct/EditProduct";
-import ProductDetails from "./components/ProductDetails/ProductDetails";
-import PrivateRoute from './components/PrivateRoute/PrivateRoute';
-import CheckOut from "./components/CheckOut/CheckOut";
-import { createContext, useState } from "react";
+import UpdateProduct from "./components/Dashboard/UpdateProduct/UpdateProduct";
 
 export const UserContext = createContext();
-function App() {
+const App = () => {
+
   const [loggedInUser, setLoggedInUser] = useState({})
   return (
-    <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
-      <Router>
-        <Navbar />
-        <Switch>
-          <Route exact path="/home">
-            <Home />
-          </Route>
-          <PrivateRoute path="/admin">
-            <Admin />
-          </PrivateRoute>
-          <PrivateRoute path="/orders">
-            <Orders />
-          </PrivateRoute>
-          <Route exact path="/login">
-            <Login />
-          </Route>
-          <Route path="/addProduct">
-            <AddProducts />
-          </Route>
-          <Route path="/manageProduct">
-            <ManageProduct />
-          </Route>
-          <Route path="/editProduct">
-            <EditProduct />
-          </Route>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route path="/productView/:productKey">
-            <ProductDetails />
-          </Route>
-          <PrivateRoute path="/product/:productKey">
-            <CheckOut />
-          </PrivateRoute>
-          <Route path="*">
-            <NoMatch />
-          </Route>
-        </Switch>
-      </Router>
-    </UserContext.Provider>
+    <>
+      <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
+        <Router>
+          <Navbar />
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route exact path="/login">
+              <Login />
+            </Route>
+            <PrivateRoute path="/orders">
+              <Orders />
+            </PrivateRoute>
+            <Route path="/productView/:productKey">
+              <ProductDetails />
+            </Route>
+            <PrivateRoute path="/product/:productKey">
+              <CheckOut />
+            </PrivateRoute>
+            <PrivateRoute path="/manageProduct">
+              <ManageProduct />
+            </PrivateRoute>
+            <PrivateRoute path="/addProduct">
+              <AddProducts />
+            </PrivateRoute>
+            <Route path="/updateProduct/:productKey">
+              <UpdateProduct />
+            </Route>
+            <Route path="*">
+              <NoMatch />
+            </Route>
+          </Switch>
+        </Router >
+      </UserContext.Provider>
+    </>
   );
-}
+};
 
 export default App;
+
+
+
+

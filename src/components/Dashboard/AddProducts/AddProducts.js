@@ -1,4 +1,4 @@
-import { Link } from '@material-ui/core';
+
 import axios from 'axios';
 import React from 'react';
 import { useState } from 'react';
@@ -8,10 +8,12 @@ import SaveIcon from '@material-ui/icons/Save';
 import './AddProduct.css'
 
 const AddProducts = () => {
+    const [loading, setLoading] = useState(false);
     const { register, handleSubmit } = useForm();
     const [imageUrl, setImageUrl] = useState(null);
 
     const onSubmit = data => {
+        setLoading(true);
         const productData = {
             name: data.name,
             price: data.price,
@@ -31,12 +33,12 @@ const AddProducts = () => {
                 if (data) {
                     alert('Product Upload successfully')
                 }
+                setLoading(false);
             })
     }
 
 
     const handleImageUpload = (event) => {
-        console.log(event.target.files[0])
         const imageData = new FormData();
         imageData.set('key', '1c06bb79531d597a437c43887a44ad81')
         imageData.append('image', event.target.files[0])
@@ -47,20 +49,13 @@ const AddProducts = () => {
 
             })
             .catch(function (error) {
-                console.log(error);
+                alert('Sorry page not found', error);
             });
     }
+
     return (
-        <>
+        <div className="add-body">
             <div class="sidebar2">
-                <div class="sidenav2">
-                    <Link href="/manageProduct">Manage Product</Link>
-                    <Link href="/addProduct">Add Product</Link>
-                    <Link href="/editProduct">Edit Product</Link>
-
-                </div>
-
-
                 <form class="form-style-9" onSubmit={handleSubmit(onSubmit)}>
                     <ul>
                         <li>
@@ -83,6 +78,7 @@ const AddProducts = () => {
                         </li>
                         <li class="button">
                             <Button
+                                disabled={loading}
                                 type="submit" value="Save"
                                 variant="contained"
                                 color="primary"
@@ -93,7 +89,7 @@ const AddProducts = () => {
                     </ul>
                 </form>
             </div>
-        </>
+        </div>
     );
 };
 

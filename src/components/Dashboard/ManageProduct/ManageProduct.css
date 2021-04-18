@@ -1,56 +1,7 @@
 .manageBody{
-  margin:150px;
- 
+  margin-top:100px;
+  margin-right: 200px;
 }
-
-.sidebar2{
-    margin-top: 100px;
-}
-.sidenav2 {
-    height: 100%;
-    width: 200px;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: #111;
-    overflow-x: hidden;
-    padding-top: 20px;
-    margin-top: 80px;
- 
-  }
-  
-  .sidenav2 a, .dropdown-btn {
-    padding: 6px 8px 6px 16px;
-    text-decoration: none;
-    font-size: 20px;
-    color: #818181;
-    display: block;
-    border: none;
-    background: none;
-    width: 100%;
-    text-align: left;
-    cursor: pointer;
-    outline: none;
-  }
-  
-
-  .sidenav2 a:hover, .dropdown-btn:hover {
-    color: #f1f1f1;
-  }
-  
-
-  .main {
-    margin-left: 200px; 
-    font-size: 20px;
-    padding: 0px 10px;
-  }
-  
-
-  @media screen and (max-height: 450px) {
-    .sidenav {padding-top: 15px;}
-    .sidenav a {font-size: 18px;}
-  }
 
   .table-content h1 {
     font-size:3em; 
@@ -94,7 +45,4 @@
   }
   
   
-  @media (max-width: 800px) {
-  .container td:nth-child(4),
-  .container th:nth-child(4) { display: none; }
-  }
+

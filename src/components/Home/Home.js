@@ -9,6 +9,7 @@ import LinearProgress from '@material-ui/core/LinearProgress';
 
 const useStyles = makeStyles((theme) => ({
     root: {
+        marginTop: '130px',
         width: '100%',
         '& > * + *': {
             marginTop: theme.spacing(2),

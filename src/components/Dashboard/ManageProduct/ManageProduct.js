@@ -1,12 +1,14 @@
-import { Link } from '@material-ui/core';
+
 import React, { useEffect, useState } from 'react';
 import ManageCard from '../ManageCard/ManageCard';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import { makeStyles } from '@material-ui/core/styles';
 import './ManageProduct.css'
+import { Grid } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
     root: {
+        marginTop: '30px',
         width: '100%',
         '& > * + *': {
             marginTop: theme.spacing(2),
@@ -33,40 +35,41 @@ const ManageProduct = () => {
     }, [])
 
     return (
-        <div class="manageBody">
-            <div class="sidebar2">
-                <div class="sidenav2">
-                    <Link >Manage Product</Link>
-                    <Link href="/addProduct">Add Product</Link>
-                    <Link href="/editProduct">Edit Product</Link>
-                </div>
-                <div class="main">
-                    <table class="table-content">
-                        <thead>
-                            <tr>
-                                <th><h1>Product Name</h1></th>
-                                <th><h1>Quantity</h1></th>
-                                <th><h1>Price</h1></th>
-                                <th><h1>Action</h1></th>
-                            </tr>
-                        </thead>
-                    </table>
-                    {
-                        loading ?
-                            <div>
-                                {
-                                    products.map((product) => <ManageCard products={product} fetchProduct={fetchProduct} />)
-                                }
-                            </div> :
-                            <div className={classes.root}>
-                                <LinearProgress />
-                                <LinearProgress color="secondary" />
-                            </div>
-                    }
-                </div>
+        <Grid container
+            direction="row">
+            <Grid item xs={12} xl={12} lg={12} md={12} sm={12}>
+                <div className="manageBody">
+                    <div class="main">
+                        <table class="table-content">
+                            <thead>
+                                <tr>
+                                    <th><h1>item</h1></th>
+                                    <th><h1>Product Name</h1></th>
+                                    <th><h1>Quantity</h1></th>
+                                    <th><h1>Price</h1></th>
+                                    <th><h1>Action</h1></th>
+                                </tr>
+                            </thead>
+                        </table>
+                        {
+                            loading ?
+                                <div>
+                                    <Grid container>
+                                        {
+                                            products.map((product) => <Grid item xs={12} xl={12} lg={12} md={12} sm={12}> <ManageCard products={product} fetchProduct={fetchProduct} /> </Grid>)
 
-            </div>
-        </div>
+                                        }
+                                    </Grid>
+                                </div> :
+                                <div className={classes.root}>
+                                    <LinearProgress />
+                                    <LinearProgress color="secondary" />
+                                </div>
+                        }
+                    </div>
+                </div>
+            </Grid>
+        </Grid>
     );
 };
 

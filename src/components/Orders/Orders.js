@@ -11,6 +11,7 @@ import OrderCard from '../OrderCard/OrderCard';
 
 const useStyles = makeStyles((theme) => ({
     root: {
+        marginTop: '20px',
         width: '100%',
         '& > * + *': {
             marginTop: theme.spacing(2),
@@ -40,11 +41,10 @@ const Orders = () => {
             <table className="Order-table">
                 <thead>
                     <tr>
-
+                        <th><h1>Item</h1></th>
                         <th><h1>Product Name</h1></th>
                         <th><h1>Quantity</h1></th>
                         <th><h1>Price</h1></th>
-                        <th><h1>Item</h1></th>
                         <th><h1>Time</h1></th>
                     </tr>
                 </thead>

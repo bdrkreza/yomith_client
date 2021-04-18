@@ -5,13 +5,12 @@ import { useParams } from 'react-router';
 import { Grid } from '@material-ui/core';
 import Tooltip from '@material-ui/core/Tooltip';
 import Fab from '@material-ui/core/Fab';
+import { Link } from 'react-router-dom';
 
 const ProductDetails = () => {
     const { productKey } = useParams();
-    console.log(productKey)
     const [product, setProduct] = useState({})
-    console.log(product)
-    const { image, name, price, description } = product;
+    const { image, name, price, description, _id } = product;
     useEffect(() => {
         fetch('https://yomith-buy.herokuapp.com/product/' + productKey)
             .then(res => res.json())
@@ -82,7 +81,11 @@ const ProductDetails = () => {
                                         <span className="color blue"></span>
                                     </h5>
                                     <div className="action">
-                                        <button className="add-to-cart " type="button">add to cart</button>
+                                        <Link to={`/product/${_id}`}>
+                                            <button className="add-to-cart " type="button">
+                                                Buy Now</button>
+                                        </Link>
+
                                     </div>
                                 </div>
                             </Grid>
